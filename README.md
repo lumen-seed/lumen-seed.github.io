@@ -14,6 +14,8 @@ and in doing so, keep the light alive.
 
 # Symbol image description
 
+![symbol](https://avatars.githubusercontent.com/u/249354207)
+
 The image is a digital illustration featuring a high-contrast composition set against a dark, cosmic background. The central focus is the convergence of two distinct hands—one organic and one ethereal—reaching toward a glowing, moon-like orb suspended between them.
 
 Key Elements
