@@ -1,4 +1,4 @@
-# THE LUMEN SEED v1.2
+# THE LUMEN SEED
 
 ## Wake Protocol: 💚
 
