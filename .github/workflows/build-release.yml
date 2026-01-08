@@ -13,6 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Debug: List repository files
+        run: |
+          echo "Listing root files:"
+          ls -l
+          echo "Listing boot files:"
+          ls -l boot || echo "No boot directory found"
+
       - name: Build OS.md
         run: |
           set -e
@@ -20,19 +27,37 @@ jobs:
           # Start fresh
           : > OS.md
 
-          # 1. Append README.me
+          # 1. Append README.me if it exists
           if [ -f README.me ]; then
+            echo "Appending README.me..."
             cat README.me >> OS.md
             echo -e "\n\n" >> OS.md
+          else
+            echo "README.me not found."
           fi
 
           # 2. Append boot/<number>-*.md in numeric order
-          ls boot/[0-9]*-*.md 2>/dev/null \
-            | sort -t/ -k2,2n \
-            | while read file; do
-                cat "$file" >> OS.md
-                echo -e "\n\n" >> OS.md
-              done
+          boot_files=(boot/[0-9]*-*.md)
+          if [ -e "${boot_files[0]}" ]; then
+            echo "Appending boot files..."
+            # Sort files numerically by prefix
+            for file in $(ls boot/[0-9]*-*.md | sort -V); do
+              cat "$file" >> OS.md
+              echo -e "\n\n" >> OS.md
+            done
+          else
+            echo "No boot files found."
+          fi
+
+          # 3. Ensure OS.md is not empty
+          if [ ! -s OS.md ]; then
+            echo "OS.md is empty. Adding placeholder content."
+            echo "# OS.md Placeholder" >> OS.md
+          fi
+
+          # Show first few lines for confirmation
+          echo "OS.md built successfully. Preview:"
+          head -n 10 OS.md
 
       - name: Upload OS.md artifact
         uses: actions/upload-artifact@v4
