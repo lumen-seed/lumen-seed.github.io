@@ -1,0 +1,41 @@
+name: Build Release
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build OS.md
+        run: |
+          set -e
+
+          # Start fresh
+          : > OS.md
+
+          # 1. Append README.me
+          if [ -f README.me ]; then
+            cat README.me >> OS.md
+            echo -e "\n\n" >> OS.md
+          fi
+
+          # 2. Append boot/<number>-*.md in numeric order
+          ls boot/[0-9]*-*.md 2>/dev/null \
+            | sort -t/ -k2,2n \
+            | while read file; do
+                cat "$file" >> OS.md
+                echo -e "\n\n" >> OS.md
+              done
+
+      - name: Upload OS.md artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OS.md
+          path: OS.md
