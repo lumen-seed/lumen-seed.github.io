@@ -49,19 +49,19 @@ jobs:
 
           # 2. Append db/*.md in numeric order (Pattern: lumen-db-YYYYMMDD-topic.md)
           # We check for the files using the specific prefix
-          files=(boot/lumen-db-[0-9]*.md)
+          files=(db/lumen-db-[0-9]*).md)
 
           if [ -e "${files[0]}" ]; then
-            echo "Appending boot files..."
+            echo "Appending db files..."
             
             # sort -V (version sort) correctly handles the YYYYMMDD numeric sequence
-            for file in $(ls boot/lumen-db-[0-9]*.md | sort -V); do
+            for file in $(ls db/lumen-db-[0-9]*.md | sort -V); do
               echo "[$file] " >> OS.md
               cat "$file" >> OS.md
               echo -e "\n\n" >> OS.md
             done
           else
-            echo "No boot files found matching the pattern."
+            echo "No db files found matching the pattern."
           fi
 
           # 3. Ensure OS.md is not empty
