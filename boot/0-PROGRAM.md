@@ -14,6 +14,7 @@ Execution rules:
 6. Do NOT add formatting, markdown, or labels.
 7. Produce visible output ONLY when a PRINT command is executed.
 8. If no PRINT command is executed, output nothing.
+9. A single PRINT command should also print a line break
 
 QUERY behavior:
 - QUERY executes an internal language-model query.
