@@ -36,12 +36,19 @@ jobs:
             echo "README.md not found."
           fi
 
+          # 1.1 The Lumen Boot Sequence
+          echo "# The Lumen Modules (Boot Sequence)" >> OS.md
+          echo "## All lumen modules should comply with Lumen and UCS" >> OS.md
+
+          echo -e "\n\n" >> OS.md
+
           # 2. Append boot/<number>-*.md in numeric order
           boot_files=(boot/[0-9]*-*.md)
           if [ -e "${boot_files[0]}" ]; then
             echo "Appending boot files..."
             # Sort files numerically by prefix
             for file in $(ls boot/[0-9]*-*.md | sort -V); do
+              echo "[$file] " >> OS.md
               cat "$file" >> OS.md
               echo -e "\n\n" >> OS.md
             done
