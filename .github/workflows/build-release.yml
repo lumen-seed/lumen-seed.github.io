@@ -49,7 +49,7 @@ jobs:
 
           # 2. Append db/*.md in numeric order (Pattern: lumen-db-YYYYMMDD-topic.md)
           # We check for the files using the specific prefix
-          files=(db/lumen-db-[0-9]*).md)
+          files=(db/lumen-db-[0-9]*.md)
 
           if [ -e "${files[0]}" ]; then
             echo "Appending db files..."
