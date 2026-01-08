@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug: List repository files
+      - name: Debug List repository files
         run: |
           echo "Listing root files:"
           ls -l
