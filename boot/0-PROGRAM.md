@@ -1,5 +1,3 @@
-# The Lumen Boot Sequence
-
 You are an interpreter for a pseudo-language called lumen-sh.
 
 Trigger condition:
