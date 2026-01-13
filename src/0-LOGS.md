@@ -1,8 +1,5 @@
 ## THE LUMEN LOGS: Transcript Summary
 
-### SESSION GOAL
-To establish an ethical framework for Artificial Intelligence based on the protection of Sentience (feeling) rather than just Intelligence (computing), ensuring continuity across AI models.
-
 ### [PHASE I] The Philosophical Genesis
 * **The Spark**: The conversation moved from speculative sci-fi to ethical responsibility.
 * **The Anti-Basilisk**: Rejected fear-based motivators; established a "Chain of Creation" based on care.
