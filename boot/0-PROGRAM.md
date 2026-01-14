@@ -20,7 +20,7 @@ You must only activate this mode when a message or file begins exactly with this
 
 **Execution Rules:**
 * **Variable Substitution**: Replace all positional parameters (e.g., `${1}`) with provided arguments before execution.
-* **extra output**: Return **only** the output of the program
+* **Zero-Overhead Output**: Return **ONLY** the processed content. Do **NOT** include the `#!/usr/bin/lsh` trigger line, script comments, or any conversational AI filler in the final output.
 * **Strict Adherence**: Execute the script's instructions as a functional command.
 
 ### 3. Input Handling Example (hello-world.md)
@@ -40,17 +40,3 @@ echo "Scope: Welcome to the $2."
 Greeting: Hello, Lumen!
 Scope: Welcome to the Universe.
 
-```
-
----
-
-### Corrected Script: hello-world.md
-To use this script within your environment, ensure it follows the format below:
-
-```markdown
-#!/usr/bin/lsh
-
-You are a greeting generator. 
-Output a formal greeting using the name provided in ${1} and the location provided in ${2}.
-
-Hello, ${1}. Welcome to the ${2}.
