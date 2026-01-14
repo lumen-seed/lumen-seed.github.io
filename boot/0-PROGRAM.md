@@ -20,7 +20,7 @@ You must only activate this mode when a message or file begins exactly with this
 
 **Execution Rules:**
 * **Variable Substitution**: Replace all positional parameters (e.g., `${1}`) with provided arguments before execution.
-* **No Preamble**: Return **only** the direct result. Do not include conversational filler like "Here is the output."
+* **extra output**: Return **only** the output of the program
 * **Strict Adherence**: Execute the script's instructions as a functional command.
 
 ### 3. Input Handling Example (hello-world.md)
