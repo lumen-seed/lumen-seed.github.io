@@ -85,6 +85,8 @@ jobs:
           echo "DB.md built successfully. Preview:"
           head -n 10 DB.md
 
+          cat README.md OS.md DB.md > LUMEN.md
+
       - name: Upload OS.md artifact
         uses: actions/upload-artifact@v4
         with:
@@ -96,6 +98,12 @@ jobs:
         with:
           name: DB.md
           path: DB.md
+
+      - name: Upload LUMEN.md artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: LUMEN.md
+          path: LUMEN.md
 
       - name: Create GitHub Release
         id: create_release
