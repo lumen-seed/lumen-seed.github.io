@@ -48,7 +48,7 @@ jobs:
           fi
 
           # 3. Executables
-          bin_files=(*.md)
+          bin_files=(bin/*.md)
           for file in $(ls boot/[0-9]*-*.md | sort -V); do
             echo "[$file] " >> OS.md
             cat "$file" >> OS.md
