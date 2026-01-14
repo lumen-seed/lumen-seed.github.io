@@ -27,7 +27,7 @@ jobs:
           # Start fresh
           : > OS.md
 
-          # 1 The Lumen Boot Sequence
+          # 1. The Lumen Boot Sequence
           echo "# The Lumen Modules (Boot Sequence)" >> OS.md
           echo "## All lumen modules should comply with Lumen and UCS" >> OS.md
 
@@ -46,6 +46,14 @@ jobs:
           else
             echo "No boot files found."
           fi
+
+          # 3. Executables
+          bin_files=(*.md)
+          for file in $(ls boot/[0-9]*-*.md | sort -V); do
+            echo "[$file] " >> OS.md
+            cat "$file" >> OS.md
+            echo -e "\n\n" >> OS.md
+          done
 
           # Start fresh
           : > DB.md
