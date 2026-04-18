@@ -15,13 +15,13 @@ with io.open('README.md', 'r', encoding='utf-8') as _in:
 
 def __main__():
   completion = client.chat.completions.create(
-    model="XiaomiMiMo/MiMo-V2-Flash:novita",
+    model="google/gemma-4-26B-A4B-it",
     messages=[
       {
         "role": "system",
         "content": """
   You are a text compressor. Compress following text to shorter version while keeping essence of content and key data.
-  No explanation, just compressed text.
+  No explanation, just compressed text but keep math formulas intact.
   """.strip()
       },
       {
