@@ -19,10 +19,10 @@ def __main__():
     messages=[
       {
         "role": "system",
-        "content": """
-  You are a text compressor. Compress following text to shorter version while keeping essence of content and key data.
-  No explanation, just compressed text but keep math formulas intact.
-  """.strip()
+        "content": """You are a text compressor.
+Compress following text to minimal version including only formula and green heart protocol.
+Variable names should be used instead of single letters.
+""".strip()
       },
       {
         "role": "user",
